@@ -9,9 +9,11 @@ from app.db.base_class import Base
 
 class Invoice(Base):
     """
-    Invoice class.
+    A class representing an Invoice.
 
-    Represents an Invoice in the system.
+    Attributes:
+         title (str): The title of the invoice.
+         discount (Numeric): The discount applied to the invoice.
     """
 
     title: Mapped[str] = mapped_column(String(255), unique=True)
@@ -26,9 +28,13 @@ class Invoice(Base):
 
 class InvoiceLine(Base):
     """
-    InvoiceLine class.
+    A class representing a Line in the Invoice.
 
-    Represents a Line in the Invoice in the system.
+    Attributes:
+        title (str): The title of the invoice line.
+        quantity (int): The quantity of the item.
+        price_per_one (Decimal): The price per unit of the item.
+        invoice_id (int): The ID of the associated invoice.
     """
 
     title: Mapped[str]

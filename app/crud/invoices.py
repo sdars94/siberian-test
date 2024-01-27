@@ -14,6 +14,24 @@ async def get_full_info(
     total_sum_gte: int = 0,
     total_sum_lte: int = None,
 ) -> Sequence[Row]:
+    """
+    Asynchronously retrieves full information based
+    on the provided parameters.
+
+    Args:
+        session (AsyncSession): The async session for executing the query.
+        skip (int): The number of rows to skip from the beginning of the
+            result set.
+        limit (int): The maximum number of rows to return.
+        total_sum_gte (int, optional): The minimum value for the total sum.
+            Defaults to 0.
+        total_sum_lte (int, optional): The maximum value for the total sum.
+            Defaults to sys.maxsize.
+
+    Returns:
+        Sequence[Row]: A sequence of rows containing the retrieved
+            information.
+    """
     if not total_sum_lte:
         total_sum_lte = sys.maxsize
     lines_subquery = (
