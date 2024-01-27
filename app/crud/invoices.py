@@ -87,7 +87,7 @@ async def get_full_info(
 
     filtered_query = (
         select(main_query_cte)
-        .where((main_query_cte.c.total.between(total_sum_gte, total_sum_lte)))
+        .where(main_query_cte.c.total.between(total_sum_gte, total_sum_lte))
         .cte(name="filtered")
     )
     paginated = select(filtered_query).where(
