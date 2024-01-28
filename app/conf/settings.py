@@ -18,8 +18,8 @@ class Settings(BaseSettings):
 
     POSTGRES_SERVER: str = "localhost"
     POSTGRES_USER: str = "postgres"
-    POSTGRES_PASSWORD: str = "2580"
-    POSTGRES_DB: str = "siberian"
+    POSTGRES_PASSWORD: str = "default_password"
+    POSTGRES_DB: str = "siberian_db"
     SQLALCHEMY_DATABASE_URI: PostgresDsn | None = None
 
     @field_validator("SQLALCHEMY_DATABASE_URI", mode="before")
